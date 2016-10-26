@@ -16,16 +16,38 @@ namespace Lab1.Migrations
                 .HasAnnotation("ProductVersion", "1.0.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Lab1.Entities.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Ownership");
+
+                    b.Property<int>("Workers");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
+                });
+
             modelBuilder.Entity("Lab1.Entities.Contract", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CompanyID");
 
                     b.Property<DateTime>("EndDate");
 
                     b.Property<int>("ShopID");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyID");
 
                     b.HasIndex("ShopID");
 
@@ -68,8 +90,13 @@ namespace Lab1.Migrations
 
             modelBuilder.Entity("Lab1.Entities.Contract", b =>
                 {
+                    b.HasOne("Lab1.Entities.Company", "Company")
+                        .WithMany("Contracts")
+                        .HasForeignKey("CompanyID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Lab1.Entities.Shop", "Shop")
-                        .WithMany()
+                        .WithMany("Contracts")
                         .HasForeignKey("ShopID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

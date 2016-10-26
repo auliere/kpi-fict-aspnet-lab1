@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Company>
+@{
+    ViewBag.Title = "Companies";
+}
+<div><h1>@ViewBag.Title</h1></div>
+@foreach (Company company in @Model)
+{
+    <div><b>@company.Name</b></div>
+    <div>@company.Address</div>
+    <div>Contracts: @company.Contracts.Count
+    </div>
+}
