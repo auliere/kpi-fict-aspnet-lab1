@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Contract>
+@{
+    ViewBag.Title = "Contracts";
+}
+<div><h1>@ViewBag.Title</h1></div>
+@foreach (Contract contract in @Model)
+{
+    <div><b>Contract #@contract.Id</b></div>
+    <div>Shop:  @contract.Shop.Name</div>
+    <div>
+        Contract items:
+        <table border="1">
+            <tr>
+                <td><b>Name</b></td> <td><b>Price</b></td> <td><b>Amount</b></td>
+            </tr>
+            @foreach(ContractItem ci in contract.ContractItems)
+            {
+                <tr>
+                    <td>@ci.Name</td>
+                    <td>@ci.Price</td>
+                    <td>@ci.Amount</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>End date: @contract.EndDate</div>
+}
