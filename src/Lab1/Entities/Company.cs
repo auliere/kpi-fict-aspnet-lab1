@@ -11,5 +11,7 @@ namespace Lab1.Entities
         public int Workers { get; set; }
 
         public virtual ICollection<Contract> Contracts { get; set; }
+        public virtual ICollection<Field> Fields { get; set; }
+        public virtual ICollection<Farm> Farms { get; set; }
     }
 }

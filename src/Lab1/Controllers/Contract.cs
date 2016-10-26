@@ -15,7 +15,7 @@ namespace Lab1.Controllers
         {
             _contractData = contractData;
         }
-       
+               
         public IActionResult Index(int? id)
         {
             if (id == null)

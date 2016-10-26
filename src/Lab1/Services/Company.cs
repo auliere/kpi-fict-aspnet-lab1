@@ -43,7 +43,9 @@ namespace Lab1.Services
         public IEnumerable<Company> GetAll()
         {
             return _context.Companies
-                    .Include(c => c.Contracts);
+                    .Include(c => c.Contracts)
+                    .Include(c => c.Fields)
+                    .Include(c => c.Farms);
         }
     }
 }

@@ -7,6 +7,30 @@
 {
     <div><b>@company.Name</b></div>
     <div>@company.Address</div>
-    <div>Contracts: @company.Contracts.Count
+    <div>Contracts: @company.Contracts.Count</div>
+    <div>
+        <table border="1">
+            <tr><td><b>Culture</b></td><td><b>Area</b></td></tr>
+            @foreach(Field field in company.Fields)
+            {
+                <tr>
+                    <td>@field.Culture</td>
+                    <td>@field.Area</td>
+                </tr>
+            }
+        </table>
+    </div>    
+    <br />
+    <div>
+        <table border="1">
+            <tr><td><b>Culture</b></td><td><b>Area</b></td></tr>
+            @foreach (Farm farm in company.Farms)
+            {
+                <tr>
+                    <td>@farm.Culture</td>
+                    <td>@farm.Amount</td>
+                </tr>
+            }
+        </table>
     </div>
 }

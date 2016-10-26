@@ -8,9 +8,10 @@ using Lab1.Entities;
 namespace Lab1.Migrations
 {
     [DbContext(typeof(Lab1DbContext))]
-    partial class Lab1DbContextModelSnapshot : ModelSnapshot
+    [Migration("20161026125326_InitialCreate1")]
+    partial class InitialCreate1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -79,7 +80,7 @@ namespace Lab1.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<double>("Amount");
+                    b.Property<double>("Area");
 
                     b.Property<int>("CompanyId");
 
