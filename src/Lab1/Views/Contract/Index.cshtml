@@ -2,26 +2,35 @@
 @{
     ViewBag.Title = "Contracts";
 }
-<div><h1>@ViewBag.Title</h1></div>
-@foreach (Contract contract in @Model)
-{
-    <div><b>Contract #@contract.Id</b></div>
-    <div>Shop:  @contract.Shop.Name</div>
-    <div>
-        Contract items:
-        <table border="1">
-            <tr>
-                <td><b>Name</b></td> <td><b>Price</b></td> <td><b>Amount</b></td>
-            </tr>
-            @foreach(ContractItem ci in contract.ContractItems)
-            {
-                <tr>
-                    <td>@ci.Name</td>
-                    <td>@ci.Price</td>
-                    <td>@ci.Amount</td>
-                </tr>
-            }
-        </table>
+<section>
+    <h3>@ViewBag.Title</h3>
+    <div class="panel panel-default">
+        @foreach (Contract contract in @Model)
+        {
+            <h4 class="panel-heading">Contract #@contract.Id</h4>
+            <div class="panel-body">
+                <h4>Shop:  @contract.Shop.Name</h4>
+                <div>
+                    Contract items:
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><b>Name</b></td>
+                            <td><b>Price</b></td>
+                            <td><b>Amount</b></td>
+                        </tr>
+                        @foreach (ContractItem ci in contract.ContractItems)
+                        {
+                            <tr>
+                                <td>@ci.Name</td>
+                                <td>@ci.Price</td>
+                                <td>@ci.Amount</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+
+            <div class="panel-footer">Contract ends on @contract.EndDate</div>
+        }
     </div>
-    <div>End date: @contract.EndDate</div>
-}
+</section>

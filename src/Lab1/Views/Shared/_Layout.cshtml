@@ -5,17 +5,29 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @RenderBody()
-    </div>
-    <footer>
-        <br />
-        <div>
-            Олег Педоренко, ІП-31. Лабораторна 1.
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Homepage</a>
+                <a class="navbar-brand" href="/Contract">Contracts</a>
+                <a class="navbar-brand" href="/Shop">Shops</a>
+                <a class="navbar-brand" href="/ContractItem">Contract Items</a>
+            </div>
         </div>
-        @RenderSection("footer", required: false)
-    </footer>
+    </nav>
+    <div class="container">
+        @RenderBody()
+        <footer>
+            <br />
+            <div>
+                Олег Педоренко, ІП-31. Лабораторна 1.
+            </div>
+            @RenderSection("footer", required: false)
+        </footer>
+    </div>
+
 </body>
 </html>

@@ -16,13 +16,13 @@ namespace Lab1.Controllers
             _contractData = contractData;
         }
                
-        public IActionResult Index(int? id)
+        public IActionResult Index(string id)
         {
             if (id == null)
             {
                 return View(_contractData.GetAll());
             }
-            return View(_contractData.GetAll().Where(contract => contract.ShopID == id));
+            return View(_contractData.GetAll().Where(contract => contract.Shop.Name.Contains(id)));
         }
         
     }

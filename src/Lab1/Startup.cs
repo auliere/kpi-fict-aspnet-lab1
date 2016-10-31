@@ -53,8 +53,9 @@ namespace Lab1
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseFileServer();
+            app.UseNodeModules(env.ContentRootPath);
             app.UseMvc(ConfigureRoutes);
-
             app.Run(ctx => ctx.Response.WriteAsync("Not Found"));
         }
 

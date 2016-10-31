@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Lab1.Services;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Lab1.Controllers
 {
@@ -17,7 +12,7 @@ namespace Lab1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int id)
+        public IActionResult Index(string id)
         {            
             return RedirectToAction("Index", "Contract", new { id = id });
         }
